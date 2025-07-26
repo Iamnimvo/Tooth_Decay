@@ -1,0 +1,39 @@
+# 🚫 پوشه تصاویر و داده‌ها
+xray_images/
+dataset*/
+*.jpg
+*.jpeg
+*.png
+
+# 🧪 فایل‌های notebok خروجی
+*.ipynb_checkpoints
+*.out
+*.log
+
+# 🔍 فایل‌های کش پایتون
+__pycache__/
+*.py[cod]
+
+# ⚙️ فایل‌های پیکربندی محیط
+.env
+*.env
+*.ini
+
+# 📦 فایل‌های dependency مربوط به pip
+pip-log.txt
+
+# 📁 خروجی مدل‌ها یا نتایج
+*.h5
+*.pth
+*.pt
+*.ckpt
+models/
+outputs/
+checkpoints/
+
+# VSCode config
+.vscode/
+
+# سیستم‌عامل
+.DS_Store
+Thumbs.db
