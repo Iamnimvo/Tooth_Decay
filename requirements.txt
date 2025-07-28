@@ -11,3 +11,4 @@ pandas
 jupyter
 seaborn
 albumentations
+python-dotenv
