@@ -1,0 +1,14 @@
+boto3
+opencv-python
+matplotlib
+numpy
+pillow
+scikit-learn
+tensorflow
+keras
+tqdm
+pandas
+jupyter
+seaborn
+albumentations
+python-dotenv
