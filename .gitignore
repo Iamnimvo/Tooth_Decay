@@ -29,7 +29,7 @@ pip-log.txt
 models/
 outputs/
 checkpoints/
-
+.pth
 # VSCode config
 .vscode/
 
