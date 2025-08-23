@@ -1,0 +1,145 @@
+<!-- frontend/views/index.html -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>هوش مصنوعی پردازش X‑Ray دندان</title>
+  <meta name="description" content="سامانهٔ تحت وب برای بارگذاری و تحلیل عکس‌های رادیوگرافی دندان با کمک هوش مصنوعی." />
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <!-- ===== Top Navbar ===== -->
+  <header class="navbar" aria-label="نوار هدایت">
+    <div class="nav-wrap">
+      <a class="brand" href="#" aria-label="بازگشت به خانه">
+        <div class="logo" aria-hidden="true">AI</div>
+        <h1>پردازش X‑Ray دندان</h1>
+      </a>
+      <nav class="nav-links" aria-label="لینک‌های اصلی">
+        <a href="#features">امکانات</a>
+        <a href="#how">نحوهٔ کار</a>
+        <a href="#faq">سؤالات متداول</a>
+        <a href="#contact">تماس</a>
+      </nav>
+      <button class="login-btn" id="loginBtn" aria-label="ورود">
+        ورود
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Main Layout ===== -->
+  <main class="layout" id="main">
+    <section>
+      <div class="hero">
+        <h2 class="title">تحلیل سریع و دقیق رادیوگرافی دندان با هوش مصنوعی</h2>
+        <p class="subtitle">عکس X‑Ray خود را بارگذاری کنید تا الگوریتم ما نشانه‌های پوسیدگی، تحلیل استخوان و موارد مشکوک را شناسایی کند. طراحی ساده، تجربهٔ کاربری روان، و آماده برای اتصال به ماژول‌های آینده.</p>
+      </div>
+
+      <article class="panel uploader" aria-label="بخش بارگذاری تصویر">
+        <label class="dropzone" id="dropzone" for="fileInput" aria-label="کشیدن و رها کردن فایل یا انتخاب از دستگاه">
+          <div>
+            <div class="dz-icon" aria-hidden="true">📤</div>
+            <h3 style="margin:0 0 6px">تصویر X‑Ray را اینجا رها کنید</h3>
+            <p class="hint">یا <u>کلیک کنید</u> و از دستگاه انتخاب کنید</p>
+            <p class="accept">فرمت‌های پشتیبانی‌شده: DICOM (.dcm)، PNG، JPG، JPEG — حداکثر 15MB</p>
+          </div>
+          <input id="fileInput" type="file" accept=".dcm,image/png,image/jpeg" />
+        </label>
+
+        <div class="preview-wrap" id="previewWrap" hidden>
+          <div class="preview" id="preview">
+            <img id="previewImg" alt="پیش‌نمایش تصویر آپلودشده" />
+            <div class="meta" id="meta"></div>
+          </div>
+
+          <div class="actions">
+            <div class="tips" aria-label="راهنماهای سریع">
+              <span class="chip">نمای واضح و کنتراست مناسب</span>
+              <span class="chip">حذف اطلاعات شناسایی بیمار</span>
+              <span class="chip">فرمت استاندارد</span>
+            </div>
+            <div style="display:flex; gap:10px">
+              <button class="btn" id="resetBtn">حذف و بارگذاری دوباره</button>
+              <button class="btn primary" id="analyzeBtn" disabled>شروع تحلیل آزمایشی</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Placeholder sections to be built later -->
+      <section id="features" class="panel" style="margin-top:18px; padding:18px">
+        <h3 style="margin-top:0">امکانات کلیدی</h3>
+        <ul style="margin:8px 0 0; padding-inline-start:18px; color:var(--muted)">
+          <li>شناسایی خودکار پوسیدگی و ضایعات مشکوک (نسخهٔ نمایشی)</li>
+          <li>هایلایت نواحی حساس روی تصویر</li>
+          <li>گزارش خلاصهٔ قابل دانلود</li>
+        </ul>
+      </section>
+
+      <section id="how" class="panel" style="margin-top:18px; padding:18px">
+        <h3 style="margin-top:0">نحوهٔ کار</h3>
+        <ol style="margin:8px 0 0; padding-inline-start:18px; color:var(--muted)">
+          <li>عکس X‑Ray را بارگذاری کنید.</li>
+          <li>الگوریتم به‌صورت محلی/سرور پردازش می‌کند.</li>
+          <li>نتیجهٔ تحلیل و نواحی مهم نمایش داده می‌شود.</li>
+        </ol>
+      </section>
+
+      <section id="faq" class="panel" style="margin-top:18px; padding:18px">
+        <h3 style="margin-top:0">سؤالات متداول</h3>
+        <details style="margin-top:10px"><summary>آیا اطلاعات من امن است؟</summary><p style="color:var(--muted)">این نسخهٔ نمایشی ذخیره‌سازی سروری انجام نمی‌دهد. در نسخهٔ نهایی از رمزنگاری و حذف خودکار استفاده خواهد شد.</p></details>
+        <details style="margin-top:10px"><summary>از چه فرمت‌هایی پشتیبانی می‌کنید؟</summary><p style="color:var(--muted)">DICOM، PNG، JPG/JPEG. حداکثر اندازهٔ فایل 15MB.</p></details>
+      </section>
+
+      <section id="contact" class="panel" style="margin-top:18px; padding:18px">
+        <h3 style="margin-top:0">تماس</h3>
+        <p style="color:var(--muted)">برای همکاری یا پیشنهادات، ایمیل فرضی: contact@example.com</p>
+      </section>
+    </section>
+
+    <!-- ===== Right Tool Dock ===== -->
+    <aside class="dock" aria-label="نوار ابزار راست برای ماژول‌های هوش مصنوعی">
+      <h3>ابزارها / ماژول‌ها</h3>
+      <button class="tool" data-tool="caries">
+        <span class="icon" aria-hidden="true">🦷</span>
+        <div>
+          <div>تشخیص پوسیدگی</div>
+          <small>به‌زودی</small>
+        </div>
+      </button>
+      <button class="tool" data-tool="root">
+        <span class="icon" aria-hidden="true">🧠</span>
+        <div>
+          <div>ارزیابی نیاز به روت کانال</div>
+          <small>به‌زودی</small>
+        </div>
+      </button>
+      <button class="tool" data-tool="bone">
+        <span class="icon" aria-hidden="true">🦴</span>
+        <div>
+          <div>تحلیل استخوان</div>
+          <small>به‌زودی</small>
+        </div>
+      </button>
+      <button class="tool" data-tool="sinus">
+        <span class="icon" aria-hidden="true">🌫️</span>
+        <div>
+          <div>تحلیل سینوس</div>
+          <small>به‌زودی</small>
+        </div>
+      </button>
+      <div style="margin-top:auto; color:var(--muted); font-size:12px">
+        <div>نسخهٔ نمایشی • v0.1</div>
+        <div>قابل توسعه برای ابزارهای جدید</div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> سامانهٔ پردازش X‑Ray دندان — تمامی حقوق محفوظ است.</div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
