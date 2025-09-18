@@ -1,14 +1,26 @@
+# --- پردازش ابری و فایل ---
 boto3
-opencv-python
-matplotlib
-numpy
-pillow
-scikit-learn
-tensorflow
-keras
-tqdm
-pandas
-jupyter
-seaborn
-albumentations
 python-dotenv
+
+# --- پردازش تصویر ---
+opencv-python
+albumentations
+
+# --- عددی و علمی ---
+numpy<2.0      # ⚠️ برای سازگاری با PyTorch (فعلاً نسخه 2 مشکل ایجاد می‌کند)
+pandas
+
+# --- یادگیری ماشین / عمیق ---
+torch
+torchvision
+torchaudio
+
+# --- یادگیری ماشین عمومی ---
+scikit-learn
+
+# --- ابزارهای کمکی ---
+tqdm
+matplotlib
+seaborn
+pillow
+jupyter
