@@ -24,12 +24,13 @@ pip-log.txt
 
 # 📁 خروجی مدل‌ها یا نتایج
 *.h5
+*.pth
 *.pt
 *.ckpt
 models/
 outputs/
 checkpoints/
-.pth
+
 # VSCode config
 .vscode/
 

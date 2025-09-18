@@ -1,0 +1,6 @@
+{
+  "class_to_idx": {
+    "healthy": 0,
+    "decayed": 1
+  }
+}

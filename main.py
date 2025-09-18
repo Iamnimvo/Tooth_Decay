@@ -1,24 +1,33 @@
+# main.py
+# -*- coding: utf-8 -*-
+
 import subprocess
+import sys
 import os
 
-# مسیرهای پوشه‌ها
-preprocess_dir = "./preprocess"
-processing_dir = "./processing"
+ROOT_DIR = os.path.dirname(__file__)
 
-# اجرای کد پیش‌پردازش
-print("⚙️ Running preprocess.py...")
-subprocess.run(["python", os.path.join(preprocess_dir, "preprocess.py")])
+# مسیر اسکریپت‌ها
+PREPROCESS = os.path.join(ROOT_DIR, "preprocess", "preprocess.py")
+TRAIN      = os.path.join(ROOT_DIR, "processing", "train_model.py")
+PREDICT    = os.path.join(ROOT_DIR, "processing", "predict.py")
 
-# اجرای کد آموزش مدل
-print("⚙️ Running train_model.py...")
-subprocess.run(["python", os.path.join(processing_dir, "train_model.py")])
+def run_step(script_path: str, title: str):
+    print(f"\n{'='*60}\n▶️  {title}\n{'='*60}")
+    try:
+        result = subprocess.run([sys.executable, script_path], check=True)
+        if result.returncode == 0:
+            print(f"✅ {title} با موفقیت اجرا شد.\n")
+    except subprocess.CalledProcessError as e:
+        print(f"⛔ خطا در {title}: {e}\n")
+        sys.exit(1)
 
-# اجرای کد مدل
-print("⚙️ Running ToothClassifier.py...")
-subprocess.run(["python", os.path.join(processing_dir, "ToothClassifier.py")])
+def main():
+    run_step(PREPROCESS, "مرحله 1: پیش‌پردازش تصاویر")
+    run_step(TRAIN, "مرحله 2: آموزش مدل")
+    run_step(PREDICT, "مرحله 3: پیش‌بینی و Grad-CAM")
 
-# اجرای کد پیش‌بینی
-print("⚙️ Running predict.py...")
-subprocess.run(["python", os.path.join(processing_dir, "predict.py")])
+    print("\n🎉 همه مراحل با موفقیت انجام شدند.")
 
-print("✅ همه مراحل انجام شد.")
+if __name__ == "__main__":
+    main()
